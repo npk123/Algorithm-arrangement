@@ -88,7 +88,7 @@ Bias 即为模型的期望输出与其真实输出之间的差异；有时为了
 
 -4.2 牛顿法
 牛顿法是一种在实数域和复数域上近似求解方程的方法。方法使用函数f (x)的泰勒级数的前面几项来寻找方程f (x) = 0的根。牛顿法最大的特点就在于它的收敛速度很快。
-! [equation1] (https://github.com/npk123/Algorithm-arrangement/blob/master/222309088311820.png)
+![equation1](https://github.com/npk123/Algorithm-arrangement/blob/master/222309088311820.png)
 　
 Ref： https://www.cnblogs.com/shixiangwan/p/7532830.html
 -4.3 拟牛顿法
