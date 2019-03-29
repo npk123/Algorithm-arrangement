@@ -128,30 +128,8 @@ Bias 即为模型的期望输出与其真实输出之间的差异；有时为了
 
 拟牛顿法和最速下降法一样只要求每一步迭代时知道目标函数的梯度。通过测量梯度的变化，构造一个目标函数的模型使之足以产生超线性收敛性。这类方法大大优于最速下降法，尤其对于困难的问题。另外，因为拟牛顿法不需要二阶导数的信息，所以有时比牛顿法更为有效。如今，优化软件中包含了大量的拟牛顿算法用来解决无约束，约束，和大规模的优化问题。
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <msub>
-    <mi>y</mi>
-    <mi>k</mi>
-  </msub>
-  <mo>&#x2248;</mo>
-  <msub>
-    <mi>H</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mi>k</mi>
-      <mo>+</mo>
-      <mn>1</mn>
-    </mrow>
-  </msub>
-  <mo>&#xB7;</mo>
-  <msub>
-    <mi>s</mi>
-    <mi>k</mi>
-  </msub>
-</math>
-
-y_k≈H_{k+1}·s_k
-
-ax^{2} + by^{2} + c = 0
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+\\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\\)
 
 5.评估指标
 
