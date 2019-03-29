@@ -130,7 +130,22 @@ Bias 即为模型的期望输出与其真实输出之间的差异；有时为了
 
 <img src="http://www.sciweavers.org/tex2img.php?eq=y_k%20%5Capprox%20H_k_%2B_1%20%20%5Ctimes%20s_k&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="y_k \approx H_k_+_1  \times s_k" width="124" height="19" />
 
+其算法包括DFP算法和BFGS算法
+
+   Ref: https://plushunter.github.io/2017/07/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%EF%BC%8825%EF%BC%89%EF%BC%9A%E6%9C%80%E9%80%9F%E4%B8%8B%E9%99%8D%E6%B3%95%E3%80%81%E7%89%9B%E9%A1%BF%E6%B3%95%E3%80%81%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/
 
 5.评估指标
+
+5.1 平均绝对误差
+
+平均绝对误差MAE（Mean Absolute Reeor）又被称为L1范数损失（L1-norm loss）：
+
+<img src="http://www.sciweavers.org/tex2img.php?eq=%7B%5Crm%20MAE%7D%28y%2C%20%5Chat%7By%7D%29%3D%5Cfrac%7B1%7D%7Bn_%7B%5Crm%20samples%7D%7D%5Csum%5Climits_%7Bi%3D1%7D%5E%7Bn_%7B%5Crm%20samples%7D%7D%7Cy_i-%5Chat%7By%7D_i%7C&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="{\rm MAE}(y, \hat{y})=\frac{1}{n_{\rm samples}}\sum\limits_{i=1}^{n_{\rm samples}}|y_i-\hat{y}_i|" width="289" height="53" />
+
+5.2 平均平方误差
+
+平均平方误差MSE（Mean Squared Error）又被称为L2范数损失（L2-norm loss）:
+
+<img src="http://www.sciweavers.org/tex2img.php?eq=%7B%5Crm%20MSE%7D%28y%2C%20%5Chat%7By%7D%29%3D%5Cfrac%7B1%7D%7Bn_%7B%5Crm%20samples%7D%7D%5Csum%5Climits_%7Bi%3D1%7D%5E%7Bn_%7B%5Crm%20samples%7D%7D%28y_i-%5Chat%7By%7D_i%29%5E2&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="{\rm MSE}(y, \hat{y})=\frac{1}{n_{\rm samples}}\sum\limits_{i=1}^{n_{\rm samples}}(y_i-\hat{y}_i)^2" width="297" height="53" />
 
 6.sklearn参数详解
