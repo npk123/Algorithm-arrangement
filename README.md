@@ -1,4 +1,4 @@
-# Algorithm-arrangement
+# Algorithm-datawhale
 DataWhale
 
 # 机器学习-如何在github上写数学公式
