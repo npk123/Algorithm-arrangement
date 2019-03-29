@@ -146,7 +146,7 @@ Bias 即为模型的期望输出与其真实输出之间的差异；有时为了
 
 平均平方误差MSE（Mean Squared Error）又被称为L2范数损失（L2-norm loss）:
 
-<img src="http://bit.ly/2TIpUIq" align="center" border="0" alt="{\rm MSE}(y, \hat{y})=\frac{1}{n_{\rm samples}}\sum\limits_{i=1}^{n_{\rm samples}}(y_i-\hat{y}_i)^2" width="297" height="53" />
+<img src="http://www.sciweavers.org/tex2img.php?eq=%7B%5Crm%20MSE%7D%28y%2C%20%5Chat%7By%7D%29%3D%5Cfrac%7B1%7D%7Bn_%7B%5Crm%20samples%7D%7D%5Csum%5Climits_%7Bi%3D1%7D%5E%7Bn_%7B%5Crm%20samples%7D%7D%28y_i-%5Chat%7By%7D_i%29%5E2&bc=White&fc=Black&im=png&fs=12&ff=arev&edit=0" align="center" border="0" alt="{\rm MSE}(y, \hat{y})=\frac{1}{n_{\rm samples}}\sum\limits_{i=1}^{n_{\rm samples}}(y_i-\hat{y}_i)^2" width="297" height="53" />
 
 6.sklearn参数详解
 
