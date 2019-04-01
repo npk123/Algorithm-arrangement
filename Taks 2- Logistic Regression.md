@@ -50,7 +50,12 @@ logistic回归的因变量可以是二分类的，也可以是多分类的，但
 
 
   ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/logistic-loss%20function.jpg)
-
+  
+  ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/simplified%20logistic%20loss%20function.png)
+  
+  ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/%E4%B8%8B%E8%BD%BD1.png)
+  
+  ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/%E4%B8%8B%E8%BD%BD2.png)
 
 4、 正则化与模型评估指标
 
