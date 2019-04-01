@@ -49,6 +49,8 @@ logistic回归的因变量可以是二分类的，也可以是多分类的，但
 # 3、逻辑回归损失函数推导及优化
 
 
+  ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/logistic-loss%20function.jpg)
+
 
 4、 正则化与模型评估指标
 
