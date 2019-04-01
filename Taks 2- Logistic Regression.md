@@ -64,12 +64,54 @@ logistic回归的因变量可以是二分类的，也可以是多分类的，但
   
   ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/%E4%B8%8B%E8%BD%BD2.png)
 
-4、 正则化与模型评估指标
+# 4、 正则化与模型评估指标
+
+4.1 正则化
 
 当模型的参数过多时，很容易遇到过拟合的问题。这时就需要有一种方法来控制模型的复杂度，典型的做法在优化目标中加入正则项，
 通过惩罚过大的参数来防止过拟合.
+ 
+ ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/Regularization-logistic%20regression.JPG)
 
+一般情况下，取p=1或p=2，分别对应L1，L2正则化，两者的区别可以从下图中看出来，L1正则化（左图）倾向于使参数变为0，因此能产生稀疏解。
 
+  ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/Regularization%20result%201-logistic%20regression.png)
+  
+  ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/Regularization%20result%202-logistic%20regression.png)
+
+实际应用时，由于我们数据的维度可能非常高，L1正则化因为能产生稀疏解，使用的更为广泛一些。
+
+4.2 模型评估指标-混淆矩阵
+
+  ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/Confusion%20Matrix.png)
+
+    真正例（True Positive，TP）：真实情况是"买"，预测结果也是"买"，TP表示正例预测成功次数。
+    假正例（False Positive，FP）：真实情况是"不买"，预测结果也是"买"，FP表示负例预测错误次数。
+    假负例（False Negative，FN）：真实情况是"买"，预测结果也是"不买"，FN表示正例预测错误次数。
+    真负例（True Negative，TN）：真实情况是"不买"，预测结果也是"不买"，TN表示负例预测成功次数。
+
+常用的衍生指标。
+
+    模型精度（Accuracy）：Accuracy = (TP + TN) / (TP + FP + TN + FN)
+    一般情况下，模型的精度越高，说明模型的效果越好。
+    准确率，又称查准率（Precision，P）：Precision = TP / (TP + FP)
+    一般情况下，查准率越高，说明模型的效果越好。
+    召回率，又称查全率（Recall，R）：Recall = TP / (TP + FN)
+    一般情况下，Recall越高，说明有更多的正类样本被模型预测正确，模型的效果越好。
+    F1值（F1-Score）：F1 Score = P*R/2(P+R)，其中P和R分别为 precision 和 recall
+    一般情况下，F1-Score越高，说明模型的效果越好。
+
+ 另有以下几个图形指标
+
+    真阳性率（True Positive Rate，TPR )：TPR = TP / (TP+FN)
+    等于Recall，一般情况下，TPR 越高，说明有更多的正类样本被模型预测正确，模型的效果越好。
+    假阳性率（False Positive Rate，FPR ）：FPR= FP / (FP+TN)
+    一般情况下，FPR 越低，说明有更多的负类样本被模型预测正确，模型的效果越好。
+    
+    ROC（Receiver Operating Characteristic）：ROC曲线的纵坐标为 TPR，横坐标为 FPR
+    AUC（Area Under Curve）：ROC曲线下的面积，很明显，AUC 的结果不会超过 1，通常 ROC 曲线都在 y = x 这条直线上面，所以，AUC 的值一般在 0.5 ~ 1 之间，面积越大模型效果越好。
+    
+  ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/ROC-AUC.png)
 
 # 5、 逻辑回归的优缺点
 
