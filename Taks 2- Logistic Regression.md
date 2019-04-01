@@ -43,6 +43,7 @@ logistic回归的因变量可以是二分类的，也可以是多分类的，但
 而且它是一个单调上升的函数，具有良好的连续性，不存在不连续点。
   
   其求导后为
+  
   ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/sigmoid'.jpg)
 
 3、逻辑回归损失函数推导及优化
