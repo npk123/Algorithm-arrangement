@@ -38,8 +38,12 @@ logistic回归的因变量可以是二分类的，也可以是多分类的，但
 它的核心思想是，如果线性回归的结果输出是一个连续值，而值的范围是无法限定的，那我们有没有办法把这个结果值映射为可以帮助我们判断的结果呢。而如果输出结果是 (0,1) 的一个概率值，这个问题就很清楚了。数学上使用便是sigmoid函数(如下)：
 
   ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/sigmoid%20function.jpg)
-
-
+  
+它的输入范围为−∞→+∞，而值域刚好为(0,1)，正好满足概率分布为(0,1)的要求。用概率去描述分类器，自然要比阈值要来的方便。
+而且它是一个单调上升的函数，具有良好的连续性，不存在不连续点。
+  
+  其求导后为
+![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/sigmoid'.jpg)
 
 3、逻辑回归损失函数推导及优化
 
