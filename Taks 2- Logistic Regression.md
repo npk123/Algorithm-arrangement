@@ -8,7 +8,7 @@
 
 两者都是回归，步骤和原理看起来相似。
 
-https://github.com/npk123/Algorithm-datawhale/blob/master/images/Capture.JPG
+  ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/Capture.JPG)
 
 下面具体解释一下： 
 
