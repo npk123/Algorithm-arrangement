@@ -48,10 +48,17 @@ logistic回归的因变量可以是二分类的，也可以是多分类的，但
 
 # 3、逻辑回归损失函数推导及优化
 
+损失函数
 
   ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/logistic-loss%20function.jpg)
   
+简化过后的损失函数如下
+  
   ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/simplified%20logistic%20loss%20function.png)
+  
+从数学上理解，我们为了找到最小值点，就应该朝着下降速度最快的方向(导函数/偏导方向)迈进，每次迈进一小步，再看看此时的下降最快方向是哪，再朝着这个方向迈进，直至最低点。
+
+用迭代公式表示出来的最小化J(θ)的梯度下降算法如下：
   
   ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/%E4%B8%8B%E8%BD%BD1.png)
   
@@ -59,9 +66,12 @@ logistic回归的因变量可以是二分类的，也可以是多分类的，但
 
 4、 正则化与模型评估指标
 
+当模型的参数过多时，很容易遇到过拟合的问题。这时就需要有一种方法来控制模型的复杂度，典型的做法在优化目标中加入正则项，
+通过惩罚过大的参数来防止过拟合.
 
 
-5、 逻辑回归的优缺点
+
+# 5、 逻辑回归的优缺点
 
 优点
 
@@ -70,6 +80,11 @@ logistic回归的因变量可以是二分类的，也可以是多分类的，但
     3.训练快，feature engineering之后效果赞； 
     4.因为结果是概率，可以做ranking model； 
     5.添加feature简单。 
+    
+缺点
+
+    1.容易欠拟合，分类精度不高;
+    2.数据特征有缺失或者特征空间很大时表现效果并不好。
    
 LR的应用场景很多哈： 
 
