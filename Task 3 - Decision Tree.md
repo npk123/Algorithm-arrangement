@@ -1,6 +1,42 @@
-1. 信息论基础（熵 联合熵 条件熵 信息增益 基尼不纯度）
+[1. 信息论基础（熵 联合熵 条件熵 信息增益 基尼不纯度）](#1)
 
-1.1 熵 （entropy）
+　[1.1 熵 （entropy）](#2)
+  
+　[1.2 联合熵](#3)
+ 
+　[1.3 条件熵 (Conditional Entropy)](#4)
+
+　[1.4 信息增益（Information Gain）](#5)
+
+　[1.5 基尼不纯度 (Gini impurity)](#6)
+
+[2. 决策树的不同分类算法（ID3算法、C4.5、CART分类树）的原理及应用场景](#7)
+ 
+　[2.1 ID3算法 原理及应用场景](#8)
+  
+　[2.2 C4.5 原理及应用场景](#9)
+
+　[2.3 CART中的分类树 原理及应用场景](#10)
+ 
+[3. 回归树原理（Regression tree）](#11)
+  
+[4. 决策树防止过拟合手段](#12)
+
+[5. 模型评估](#13)
+
+[6. sklearn参数](#14)
+
+　[6.1 sklearn参数详解](#15)
+
+　[6.2 Python的实现](#16)
+
+
+
+<h2 id='1'> 1. 信息论基础（熵 联合熵 条件熵 信息增益 基尼不纯度） </h2>
+
+<h3 id='2'> 1.1 熵 （entropy） </h3>
+
+
 
 在信息论与概率统计中，熵表示随机变量不确定性的度量。设X是一个取有限个值得离散随机变量，其概率分布为
 
@@ -12,7 +48,8 @@
 
 若pi等于0，定义0log0=0，熵的单位为比特或者纳特。
 
-1.2 联合熵
+<h3 id='3'> 1.2 联合熵 </h3>
+
 
   ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/Capture4.JPG)
 
@@ -24,7 +61,9 @@
 
 Ref：https://blog.csdn.net/gangyin5071/article/details/82228827#5%E8%81%94%E5%90%88%E4%BF%A1%E6%81%AF%E7%86%B5%E5%92%8C%E6%9D%A1%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5
 
-1.3 条件熵 (Conditional Entropy)
+<h3 id='4'> 1.3 条件熵 (Conditional Entropy) </h3>
+
+
 
 H(Y|X)表示在已知随机变量X的条件下随机变量Y的不确定性定义为X给定条件下Y的条件概率分布的熵对X的数学期望
 
@@ -32,7 +71,8 @@ H(Y|X)表示在已知随机变量X的条件下随机变量Y的不确定性定义
 
 经验熵和经验条件熵：当熵和条件熵中的概率由数据估计（特别是极大似然估计）得到时，所对应的熵与条件熵分别称为经验熵和条件经验熵。
 
-1.4 信息增益（Information Gain）
+<h3 id='5'> 1.4 信息增益（Information Gain） </h3>
+
 
 信息增益表示得知特征X的信息而使得类Y的信息的不确定性减少的程度。特征A对训练数据集D的信息增益g(D,A)，定义为集合D的经验熵H(D)与特征A给定条件下D的经验条件熵H(D|A)之差，即
 
@@ -42,7 +82,8 @@ H(Y|X)表示在已知随机变量X的条件下随机变量Y的不确定性定义
 
 于是我们可以应用信息增益准则来选择特征，信息增益表示由于特征A而使得对数据集D的分类的不确定性减少的程度。对数据集D而言，信息增益依赖于特征，不同的特征往往具有不同的信息增益。信息增益大的特征具有更强的分类能力。
 
-1.5 基尼不纯度 (Gini impurity)
+<h3 id='6'> 1.5 基尼不纯度 (Gini impurity) </h3>
+
 
 将来自集合中的某种结果随机应用于集合中某一数据项的预期误差率。
 
@@ -54,9 +95,12 @@ H(Y|X)表示在已知随机变量X的条件下随机变量Y的不确定性定义
 
 它描述了一个数据集中标签分布的不纯度，类似于entropy。
 
-2.决策树的不同分类算法（ID3算法、C4.5、CART分类树）的原理及应用场景
+<h2 id='7'> 2.决策树的不同分类算法（ID3算法、C4.5、CART分类树）的原理及应用场景 </h2>
 
-2.1 ID3算法 原理及应用场景
+
+<h3 id='8'> 2.1 ID3算法 原理及应用场景 </h3>
+
+
 
 核心思想：以信息增益为度量，选择分裂后信息增益最大的特征进行分裂
 
@@ -76,7 +120,8 @@ ID3优点是理论清晰、方法简单、学习能力较强，但也在应用�
 
 Ref：https://blog.csdn.net/u010089444/article/details/53241218
 
-2.2 C4.5 原理及应用场景
+<h3 id='9'> 2.2 C4.5 原理及应用场景 </h3>
+
 
 C4.5算法是ID3算法的改进，区别有：
 
@@ -89,7 +134,8 @@ C4.5算法是ID3算法的改进，区别有：
     1. 算法低效，在构造树的过程中，需要对数据集进行多次的顺序扫描和排序，因而导致算法的低效
     2. 内存受限，只适合于能够驻留于内存的数据集，当训练集大得无法在内存容纳时程序无法运行。
 
-2.3 CART中的分类树 原理及应用场景
+<h3 id='10'> 2.3 CART中的分类树 原理及应用场景 </h3>
+
 
 CART（Classification And Regression Tree）算法既可以用于创建分类树，也可以用于创建回归树。CART算法的重要特点包含以下三个方面：
 
@@ -104,7 +150,8 @@ Ref：https://blog.csdn.net/u010089444/article/details/53241218
 
 实例：https://zhuanlan.zhihu.com/p/30155789
 
-3. CART中的回归树原理（Regression tree）
+<h2 id='11'> 3. CART中的回归树原理（Regression tree） </h2>
+
 
 实际上，回归树总体流程类似于分类树，分枝时穷举每一个特征的每一个阈值，来寻找最优切分特征j和最优切分点s，衡量的方法是平方误差最小化。分枝直到达到预设的终止条件(如叶子个数上限)就停止。
 当然，处理具体问题时，单一的回归树肯定是不够用的。可以利用集成学习中的boosting框架，对回归树进行改良升级，得到的新模型就是提升树（Boosting Decision Tree），在进一步，可以得到梯度提升树（Gradient Boosting Decision Tree，GBDT），再进一步可以升级到XGBoost。
@@ -113,7 +160,8 @@ Ref：https://juejin.im/post/5a7eb1f06fb9a0636108710a
 
   https://plushunter.github.io/2017/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%EF%BC%884%EF%BC%89%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91/
 
-4. 决策树防止过拟合手段
+<h2 id='12'> 4. 决策树防止过拟合手段 </h2>
+
 
 产生过度拟合问题的原因：
 
@@ -130,7 +178,8 @@ Ref：https://juejin.im/post/5a7eb1f06fb9a0636108710a
     先剪枝（prepruning）：通过提前停止树的构建而对树“剪枝”，一旦停止，节点就成为树叶。该树叶可以持有子集元组中最频繁的类
     后剪枝（postpruning）：它首先构造完整的决策树，允许树过度拟合训练数据，然后对那些置信度不够的结点子树用叶子结点来代替，该叶子的类标号用该结点子树中最频繁的类标记。后剪枝的剪枝过程是删除一些子树，然后用其叶子节点代替，这个叶子节点所标识的类别通过大多数原则(majority class criterion)确定。
 
-5. 模型评估
+<h2 id='13'> 5. 模型评估 </h2>
+
 
 自助法（bootstrap）：
 训练集是对于原数据集的有放回抽样，如果原始数据集N，可以证明，大小为N的自助样本大约包含原数据63.2%的记录。当N充分大的时候，1-（1-1/N）^(N) 概率逼近 1-e^(-1)=0.632。抽样 b 次，产生 b 个bootstrap样本，则，总准确率为（accs为包含所有样本计算的准确率）：
@@ -144,9 +193,11 @@ Ref：https://juejin.im/post/5a7eb1f06fb9a0636108710a
 
   ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/Capture7.JPG)
 
-6. sklearn参数详解，Python绘制决策树
+<h2 id='14'> 6. sklearn参数详解，Python绘制决策树 </h2>
 
-6.1 sklearn参数详解
+<h3 id='15'> 6.1 sklearn参数详解 </h3>
+
+
 
 DecisionTreeClassifier(criterion=’gini’, splitter=’best’, max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0, max_features=None, random_state=None, max_leaf_nodes=None, min_impurity_decrease=0.0, min_impurity_split=None, class_weight=None, presort=False)
 
@@ -236,6 +287,7 @@ tree_ : 底层的Tree对象
 
 Ref：官方文档：http://scikit-learn.org/stable/modules/tree.html
 
-6.2 Python的实现
+<h3 id='16'> 6.2 Python的实现 </h3>
+
 
 Ref：https://zhuanlan.zhihu.com/p/30744760
