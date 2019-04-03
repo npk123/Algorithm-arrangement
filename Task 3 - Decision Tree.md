@@ -62,7 +62,7 @@ H(Y|X)表示在已知随机变量X的条件下随机变量Y的不确定性定义
 
 遍历所有特征，对于特征A：
 
-    1.计算特征A对数据集D的经验条件熵H(D|A)
+    1.计算特征A对数据集D的经验条件熵H(D|A)v
     2.计算特征A的信息增益：
     g(D,A)=H(D) – H(D|A)
     3.选择信息增益最大的特征作为当前的分裂特征
@@ -89,7 +89,7 @@ C4.5算法是ID3算法的改进，区别有：
     1. 算法低效，在构造树的过程中，需要对数据集进行多次的顺序扫描和排序，因而导致算法的低效
     2. 内存受限，只适合于能够驻留于内存的数据集，当训练集大得无法在内存容纳时程序无法运行。
 
-2.3 CART分类树 原理及应用场景
+2.3 CART中的分类树 原理及应用场景
 
 CART（Classification And Regression Tree）算法既可以用于创建分类树，也可以用于创建回归树。CART算法的重要特点包含以下三个方面：
 
@@ -97,10 +97,21 @@ CART（Classification And Regression Tree）算法既可以用于创建分类树
     2. 单变量分割(Split Based on One Variable)：每次最优划分都是针对单个变量。
     3. 剪枝策略：CART算法的关键点，也是整个Tree-Based算法的关键步骤。剪枝过程特别重要，所以在最优决策树生成过程中占有重要地位。有研究表明，剪枝过程的重要性要比树生成过程更为重要，对于不同的划分标准生成的最大树(Maximum Tree)，在剪枝之后都能够保留最重要的属性划分，差别不大。反而是剪枝方法对于最优树的生成更为关键。
 
+    如果待预测分类是离散型数据，则CART生成分类决策树。
+    如果待预测分类是连续性数据，则CART生成回归决策树。
+
 Ref：https://blog.csdn.net/u010089444/article/details/53241218
 
-3. 回归树原理
+实例：https://zhuanlan.zhihu.com/p/30155789
 
+3. CART中的回归树原理（Regression tree）
+
+实际上，回归树总体流程类似于分类树，分枝时穷举每一个特征的每一个阈值，来寻找最优切分特征j和最优切分点s，衡量的方法是平方误差最小化。分枝直到达到预设的终止条件(如叶子个数上限)就停止。
+当然，处理具体问题时，单一的回归树肯定是不够用的。可以利用集成学习中的boosting框架，对回归树进行改良升级，得到的新模型就是提升树（Boosting Decision Tree），在进一步，可以得到梯度提升树（Gradient Boosting Decision Tree，GBDT），再进一步可以升级到XGBoost。
+
+Ref：https://juejin.im/post/5a7eb1f06fb9a0636108710a
+
+  https://plushunter.github.io/2017/01/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%EF%BC%884%EF%BC%89%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91/
 
 4. 决策树防止过拟合手段
 
@@ -121,6 +132,17 @@ Ref：https://blog.csdn.net/u010089444/article/details/53241218
 
 5. 模型评估
 
+自助法（bootstrap）：
+训练集是对于原数据集的有放回抽样，如果原始数据集N，可以证明，大小为N的自助样本大约包含原数据63.2%的记录。当N充分大的时候，1-（1-1/N）^(N) 概率逼近 1-e^(-1)=0.632。抽样 b 次，产生 b 个bootstrap样本，则，总准确率为（accs为包含所有样本计算的准确率）：
+
+  ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/Capture6.JPG)
+
+准确度的区间估计：
+
+将分类问题看做二项分布，则有： 
+令 X 为模型正确分类，p 为准确率，X 服从均值 Np、方差 Np（1-p）的二项分布。acc=X/N为均值 p，方差 p（1-p）/N 的二项分布。acc 的置信区间： 
+
+  ![equation1](https://github.com/npk123/Algorithm-datawhale/blob/master/images/Capture7.JPG)
 
 6. sklearn参数详解，Python绘制决策树
 
@@ -213,3 +235,7 @@ n_outputs_ : int
 tree_ : 底层的Tree对象
 
 Ref：官方文档：http://scikit-learn.org/stable/modules/tree.html
+
+6.2 Python的实现
+
+Ref：https://zhuanlan.zhihu.com/p/30744760
